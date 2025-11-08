@@ -1,0 +1,54 @@
+"""
+Example brand configuration for the video analyzer.
+"""
+{
+    "brand_name": "Example Brand",
+    "color_palette": [
+        "#FF0000",  # Primary red
+        "#00FF00",  // Primary green
+        "#0000FF"   // Primary blue
+    ],
+    "logo_path": "path/to/logo.png",
+    "product_keywords": [
+        "product",
+        "item",
+        "brand"
+    ],
+    "tone_of_voice": [
+        "professional",
+        "friendly",
+        "innovative"
+    ],
+    "brand_values": [
+        "quality",
+        "innovation",
+        "sustainability"
+    ],
+    "restricted_content": [
+        "explicit",
+        "violence",
+        "offensive language"
+    ],
+    "visual_quality": {
+        "min_resolution": [1920, 1080],
+        "max_blur": 0.5,
+        "max_noise": 0.3
+    },
+    "safety_thresholds": {
+        "explicit": 0.1,
+        "violence": 0.1,
+        "hate": 0.05
+    },
+    "message_requirements": {
+        "required_elements": [
+            "product",
+            "brand_name",
+            "call_to_action"
+        ],
+        "cta_phrases": [
+            "buy now",
+            "learn more",
+            "shop now"
+        ]
+    }
+}
