@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y \
     libxext6 \
     libgl1 \
     libglib2.0-0 \
+    libjpeg-dev \
+    libpng-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the requirements first to leverage Docker cache
@@ -29,8 +31,10 @@ RUN mkdir -p /app/uploads /app/logs
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 
-# Create a non-root user
-RUN useradd -m appuser && chown -R appuser:appuser /app
+# Create a non-root user and ensure proper permissions
+RUN useradd -m appuser && \
+    chmod -R 755 /app/config/assets && \
+    chown -R appuser:appuser /app
 USER appuser
 
 # Make port 8000 available to the world outside this container
